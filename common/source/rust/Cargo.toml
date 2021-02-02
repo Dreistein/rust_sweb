@@ -1,0 +1,23 @@
+[package]
+name = "rust"
+version = "0.1.0"
+authors = ["dreistein <dev@0xd3.xyz>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+
+[lib]
+name = "rust_parts"
+path = "src/lib.rs"
+crate-type = ["staticlib"]
+
+# the profile used for `cargo build`
+[profile.dev]
+panic = "abort" # disable stack unwinding on panic
+
+# the profile used for `cargo build --release`
+[profile.release]
+panic = "abort" # disable stack unwinding on panic

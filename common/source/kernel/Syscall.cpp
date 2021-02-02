@@ -8,6 +8,8 @@
 #include "ProcessRegistry.h"
 #include "File.h"
 
+extern "C" size_t add_one(size_t);
+
 size_t Syscall::syscallException(size_t syscall_number, size_t arg1, size_t arg2, size_t arg3, size_t arg4, size_t arg5)
 {
   size_t return_value = 0;
@@ -46,6 +48,9 @@ size_t Syscall::syscallException(size_t syscall_number, size_t arg1, size_t arg2
       break;
     case sc_trace:
       trace();
+      break;
+    case sc_addone:
+      return_value = add_one(arg1);
       break;
     case sc_pseudols:
       VfsSyscall::readdir((const char*) arg1);
