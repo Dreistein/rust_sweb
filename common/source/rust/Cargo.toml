@@ -1,5 +1,5 @@
 [package]
-name = "rust"
+name = "sweb_rs"
 version = "0.1.0"
 authors = ["dreistein <dev@0xd3.xyz>"]
 edition = "2018"
@@ -10,7 +10,7 @@ edition = "2018"
 
 
 [lib]
-name = "rust_parts"
+name = "sweb_rs"
 path = "src/lib.rs"
 crate-type = ["staticlib"]
 

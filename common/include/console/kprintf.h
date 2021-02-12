@@ -11,7 +11,7 @@
  * @param fmt Format String with standard Format Syntax
  * @param args Possible multibple variable for printf as specified in Format String.
  */
-void kprintf(const char *fmt, ...) __attribute__ ((format (printf, 1, 2)));
+extern "C" void kprintf(const char *fmt, ...) __attribute__ ((format (printf, 1, 2)));
 
 /**
  * Usable like any other printf.
@@ -21,7 +21,7 @@ void kprintf(const char *fmt, ...) __attribute__ ((format (printf, 1, 2)));
  * @param fmt Format String with standard Format Syntax
  * @param args Possible multibple variable for printf as specified in Format String.
  */
-void kprintfd(const char *fmt, ...) __attribute__ ((format (printf, 1, 2)));
+extern "C" void kprintfd(const char *fmt, ...) __attribute__ ((format (printf, 1, 2)));
 /**
  * Initializes the nosleep functionality and starts the flushing thread.
  */
