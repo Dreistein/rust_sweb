@@ -68,7 +68,7 @@ void kprintf_func(int ch, void *arg __attribute__((unused)))
   }
 }
 
-extern "C" void kprintf(const char *fmt, ...)
+void kprintf(const char *fmt, ...)
 {
   va_list args;
 
@@ -82,11 +82,19 @@ void kprintfd_func(int ch, void *arg __attribute__((unused)))
   writeChar2Bochs((uint8) ch);
 }
 
-extern "C" void kprintfd(const char *fmt, ...)
+void kprintfd(const char *fmt, ...)
 {
   va_list args;
 
   va_start(args, fmt);
   kvprintf(fmt, kprintfd_func, 0, 10, args);
   va_end(args);
+}
+
+extern "C" void _dprint_c(uint8 c) {
+  kprintf_func(c, NULL);
+}
+
+extern "C" void _kprint_c(uint8 c) {
+  writeChar2Bochs(c);
 }
