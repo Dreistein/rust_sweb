@@ -18,8 +18,9 @@ static ALLOCATOR: SwebAllocator = SwebAllocator;
 #[no_mangle]
 pub unsafe extern "C" fn add_one(val: u64) -> u64 {
     let mut v = Vec::new();
-    console::printk("Hello from Rust!\n");
-    console::printd("Hello from Rust to the console!\n");
+
+    println!("Hello from Rust!");
+
     v.push(val);
     v.push(1);
     //panic!("Panics work too!");
@@ -28,9 +29,8 @@ pub unsafe extern "C" fn add_one(val: u64) -> u64 {
 
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
-    console::printd("Kernel Panic\n");
-    console::printk("[Rust Kernel Panic.]\n");
-    console::printk(&format!("{}", info));
+    console::raw::printd("Kernel Panic\n");
+    println!("[Rust Kernel Panic.]\n{}", info);
     loop {}
 }
 
