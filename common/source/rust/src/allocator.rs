@@ -1,4 +1,3 @@
-
 use alloc::alloc::{GlobalAlloc, Layout};
 
 extern "C" {
@@ -14,7 +13,7 @@ unsafe impl GlobalAlloc for SwebAllocator {
         kmalloc(layout.size())
     }
 
-    unsafe fn dealloc(&self, ptr: *mut u8, layout: Layout) {
+    unsafe fn dealloc(&self, ptr: *mut u8, _layout: Layout) {
         kfree(ptr)
     }
 

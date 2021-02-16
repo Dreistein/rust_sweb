@@ -1,11 +1,10 @@
 #![no_std]
 #![feature(alloc_error_handler)]
 
-
 use core::panic::PanicInfo;
 
 extern crate alloc;
-use alloc::{boxed::Box, vec, vec::Vec, rc::Rc, format};
+use alloc::vec::Vec;
 
 mod allocator;
 use allocator::SwebAllocator;

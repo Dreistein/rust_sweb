@@ -1,5 +1,3 @@
-
-use alloc::vec::Vec;
 use alloc::str;
 use core::fmt;
 
@@ -47,7 +45,9 @@ impl fmt::Write for Writer {
 #[doc(hidden)]
 pub fn _print(args: fmt::Arguments) {
     use core::fmt::Write;
-    let mut writer = Writer { print_function: raw::printk };
+    let mut writer = Writer {
+        print_function: raw::printk,
+    };
     writer.write_fmt(args).unwrap();
 }
 
